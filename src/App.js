@@ -12,6 +12,9 @@ import Education from './Pages/Education';
 import EdDetails from './Pages/EdDetails';
 import Skills from './Pages/Skills';
 import SkillsDetails from './Pages/SkillsDetails';
+import Summary from './Pages/Summary';
+import SummaryDetails from './Pages/SummaryDetails';
+import FinalPage from './Components/subComponents/FinalPage';
 function App() {
   return (
     <Router>
@@ -25,7 +28,9 @@ function App() {
           <Route path='/edDetails' element={<EdDetails/>}/>
           <Route path='/skills' element={<Skills/>}/>
           <Route path='/skillsDetails' element={<SkillsDetails/>}/>
-
+          <Route path='/summary' element={<Summary/>}/>
+          <Route path='/summaryDetails' element={<SummaryDetails/>}/>
+          <Route path='/final' element={<FinalPage/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
         </Routes>

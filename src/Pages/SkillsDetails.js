@@ -1,17 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import style from '../Styles/workDetails.module.css';
+import style from '../Styles/skillsDetails.module.css';
 
 export default function SkillsDetails() {
-    const Month=[
-        "January","February",
-        "March","April",
-        "May","June","July","August",
-        "September","November","December"
-    ]
-    const Year=[
-        '2022','2021'
-    ]
+    
   return (
     <div styles={{width:"100%", height:"100%"}}>
       <div className={style.container}>
@@ -20,63 +12,81 @@ export default function SkillsDetails() {
           <p>Add a few skills to show employers what you're good at.</p>
         </div>
         <div className={style.content}>
-          <label>Job Title</label>
-          <input type='text' placeholder='*Required'/>
-        </div>
-        <div className={style.content, style.company}>
-            <label>Company</label>
-            <input type='text' placeholder='*Required'/>
-        </div>
-        <div className={style.content}>
-            <label>City/Town</label>
-            <input type='text' placeholder='*Required'/>
-        </div>
-        <div className={style.content}>
-          <label>Country</label>
-          <input type='text' placeholder='*Required'/>
-        </div>
-        <div className={style.content}>
-            <label>Start Date</label>
-            <div style={{display:'flex'}}>
-            <select>
-                  <option>Month</option>
-                  {
-                      [...Month].map(ele=> <option key={ele} value={ele}>{ele}</option>)
-                  }
-              </select>
-              <select>
-                  <option>Year</option>
-                  {
-                      [...Year].map(ele=> <option key={ele-1} value={ele-1}>{ele-1}</option>)
-                  }
-              </select>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+          </div>
+            <input type='text' placeholder='Skills 1'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
             </div>
         </div>
-        <div className={style.content }>
-          <label>End Date</label>
-          <div style={{display:'flex' , justifyContent:'space-evenly'}}>
-              <select>
-                  <option>Month</option>
-                  {
-                      [...Month].map(ele=> <option key={ele} value={ele}>{ele}</option>)
-                  }
-              </select>
-              <select>
-                  <option>Year</option>
-                  {
-                      [...Year].map(ele=> <option key={ele-1} value={ele-1}>{ele-1}</option>)
-                  }
-              </select>
+        <div className={style.content}>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
+            <input type='text' placeholder='Skills 2'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
+            </div>
+        </div>
+        <div className={style.content}>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+          </div>
+            <input type='text' placeholder='Skills 3'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
+            </div>
+        </div>
+        <div className={style.content}>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+          </div>
+            <input type='text' placeholder='Skills 4'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
+            </div>
+        </div>
+        <div className={style.content}>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+          </div>
+            <input type='text' placeholder='Skills 5'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
+            </div>
+        </div>
+        <div className={style.content}>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+          </div>
+            <input type='text' placeholder='Skills 6'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
+            </div>
+        </div>
+        <div className={style.content}>
+          <div style={{padding:'10px'}}>
+            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+          </div>
+            <input type='text' placeholder='Skills 7'/>
+            <div className={style.trash}>
+              <i className="fa fa-trash"></i>
+            </div>
         </div>
         <div className={style.content, style.checkBox}>
-              <input type='checkbox'/>
-              <label>Currently Work Here</label>
-          </div>
+              <Link to ='/' style={{fontWeight:'normal'}}>+ Add another skill</Link>
+        </div>
+        <div className={style.content, style.add}>
+          <button className={style.addBtn}>
+            <i className="fa fa-plus-circle" style={{color:'white', background:'#03ACBB', borderRadius:'100%', fontSize:'15px', marginRight:'10px'}}></i>
+            Add Pre-Written Examples
+          </button>
+        </div>
         <div>
           <div className={style.content, style.btn}>
-            <Link to='/education'>
-              <button className={style.saveBtn}>ENTER JOB DESCRIPTION</button>
+            <Link to='/summary'>
+              <button className={style.saveBtn}>SAVE & CONTINUE</button>
             </Link>
           </div>
           <div className={style.back}>
