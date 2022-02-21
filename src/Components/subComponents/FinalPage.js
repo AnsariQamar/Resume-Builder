@@ -12,7 +12,7 @@ export default function FinalPage() {
     <div className={styles.container}>
         <div className={styles.leftContainer}>
           {
-            (ChangeName.name=='' || ChangeName.email=='')?<div></div>
+            (ChangeName.name==='' || ChangeName.email==='')?<div></div>
             : 
               <div className={styles.contact}>
                 <div style={{display:'flex'}}>
