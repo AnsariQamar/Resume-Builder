@@ -1,9 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import style from '../Styles/skillsDetails.module.css';
+import ChangeSkills from '../reducers/skillreducer';
+import { useSelector } from 'react-redux';
+import { setSkills } from '../actions/actions';
+
 
 export default function SkillsDetails() {
-    
+  const {ChangeSkills}=useSelector((state)=>state);
+  const dispatch=useDispatch();
+  const [form,setform]=useState(ChangeSkills);
+
+  function handleChange(e){
+    const {value}=e.target;
+    // console.log(value);
+    if(value!==''){
+      if(form.length===0){
+        setform([value]);
+      }
+      else{
+        setform([
+          ...form,value
+        ])
+      }
+
+    }
+    // console.log(form)
+  }
+  function handleClick(){
+    dispatch(setSkills(form));
+  }
+
   return (
     <div styles={{width:"100%", height:"100%"}}>
       <div className={style.container}>
@@ -15,7 +43,7 @@ export default function SkillsDetails() {
           <div style={{padding:'10px'}}>
             <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
-            <input type='text' placeholder='Skills 1'/>
+            <input type='text' onBlur={handleChange} placeholder='Skills 1'/>
             <div className={style.trash}>
               <i className="fa fa-trash"></i>
             </div>
@@ -24,7 +52,7 @@ export default function SkillsDetails() {
           <div style={{padding:'10px'}}>
             <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
-            <input type='text' placeholder='Skills 2'/>
+            <input type='text' onBlur={handleChange} placeholder='Skills 2'/>
             <div className={style.trash}>
               <i className="fa fa-trash"></i>
             </div>
@@ -33,7 +61,7 @@ export default function SkillsDetails() {
           <div style={{padding:'10px'}}>
             <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
-            <input type='text' placeholder='Skills 3'/>
+            <input type='text' onBlur={handleChange} placeholder='Skills 3'/>
             <div className={style.trash}>
               <i className="fa fa-trash"></i>
             </div>
@@ -42,7 +70,7 @@ export default function SkillsDetails() {
           <div style={{padding:'10px'}}>
             <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
-            <input type='text' placeholder='Skills 4'/>
+            <input type='text' onBlur={handleChange} placeholder='Skills 4'/>
             <div className={style.trash}>
               <i className="fa fa-trash"></i>
             </div>
@@ -51,7 +79,7 @@ export default function SkillsDetails() {
           <div style={{padding:'10px'}}>
             <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
-            <input type='text' placeholder='Skills 5'/>
+            <input type='text'onBlur={handleChange} placeholder='Skills 5'/>
             <div className={style.trash}>
               <i className="fa fa-trash"></i>
             </div>
@@ -60,14 +88,14 @@ export default function SkillsDetails() {
           <div style={{padding:'10px'}}>
             <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
-            <input type='text' placeholder='Skills 6'/>
+            <input type='text' onBlur={handleChange} placeholder='Skills 6'/>
             <div className={style.trash}>
               <i className="fa fa-trash"></i>
             </div>
         </div>
         <div className={style.content}>
           <div style={{padding:'10px'}}>
-            <i className="fas fa-exchange-alt" style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
+            <i className="fas fa-exchange-alt" onBlur={handleChange} style={{transform:'rotate(90deg)',color:'#54ACBB'}}></i>
           </div>
             <input type='text' placeholder='Skills 7'/>
             <div className={style.trash}>
@@ -85,12 +113,12 @@ export default function SkillsDetails() {
         </div>
         <div>
           <div className={style.content, style.btn}>
-            <Link to='/summary'>
+            <Link to='/summary' onClick={handleClick}>
               <button className={style.saveBtn}>SAVE & CONTINUE</button>
             </Link>
           </div>
           <div className={style.back}>
-            <Link to='/'  className={style.link}>&lt; Back</Link>
+            <Link to='/skills'  className={style.link}>&lt; Back</Link>
           </div>
         </div>
       </div>

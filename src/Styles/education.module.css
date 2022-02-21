@@ -41,14 +41,14 @@ span{
 .list{
     /* list-style: none; */
 }
-li{
+.lit{
     margin: 0px -35px 24px;
     counter-increment: index;
     /* list-style: none; */
     display: flex;
     /* justify-content: space-between; */
 }
-li::before{
+.lit::before{
     color: #55a1e8;
     content: counter(index);
     background: #deefff;

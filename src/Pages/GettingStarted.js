@@ -11,14 +11,14 @@ export default function GettingStarted() {
           <div className={style.steps}>3 SIMPLE STEPS </div>
           <h1>Getting Started</h1>
           <ul className={style.list}>
-            <li >
+            <li className={style.lit}>
                 <div>
                     <div className={style.span}>
                         Save time using pre-written bullets crafted by resume experts.{" "}
                     </div>
                 </div>
             </li>
-            <li >
+            <li className={style.lit}>
                 <div>
                     <div className={style.span}>
                         Select a recruiter approved template that will get your resume
@@ -26,7 +26,7 @@ export default function GettingStarted() {
                     </div>
                 </div>
             </li>
-            <li>
+            <li className={style.lit}>
                 <div>
                     <div className={style.span}>
                         Download or print your new resume! 

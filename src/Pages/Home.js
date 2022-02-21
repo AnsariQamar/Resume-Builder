@@ -14,7 +14,10 @@ export default function Home() {
   const [form, setform]=useState({
     name:ChangeName.name,
     email:ChangeName.email,
-    address:ChangeName.address
+    address:ChangeName.address,
+    city:ChangeName.city,
+    country:ChangeName.country,
+    phone:ChangeName.phone
   })
   const dispatch=useDispatch();
   
@@ -39,8 +42,10 @@ export default function Home() {
     obj.name=form.name;
     obj.email=form.email;
     obj.address=form.address;
-    console.log(obj);
-    // obj=form;
+    obj.city=form.city;
+    obj.country=form.country;
+    obj.phone=form.phone;
+    // console.log(obj);
     dispatch(setForm(form));
   }
 
@@ -53,36 +58,36 @@ export default function Home() {
         </div>
         <div className={style.content}>
           <label>Name</label>
-          <input type='text' placeholder='*Required' value={form.Name} onChange={handleChange} name='name'/>
+          <input type='text' placeholder='*Required' value={form.name} onChange={handleChange} name='name'/>
         </div>
         <div className={style.content, style.emails}>
           <div >
             <label>Email</label>
-            <input type='text' placeholder='*Required' value={form.Email} onChange={handleChange} name='email'/>
+            <input type='text' placeholder='*Required' value={form.email} onChange={handleChange} name='email'/>
           </div>
           <div className={style.checkBox}>
-            <input id="IsEmailHidden" type="checkbox" value={form.Address} name="IsEmailHidden"/>
+            <input id="IsEmailHidden" type="checkbox"  name="IsEmailHidden"/>
             <label>Don't show on my resume</label>
           </div>
         </div>
         <div className={style.content}>
           <div>
             <label>Street Address</label>
-            <input type='text' placeholder='*Required'  onChange={handleChange} name='address'/>
+            <input type='text' placeholder='*Required' value={form.address} onChange={handleChange} name='address'/>
           </div>
         </div>
-        <div className={style.content}>
+        <div className={style.content}> 
           <label>City</label>
-          <input type='text' placeholder='*Required'/>
+          <input type='text' placeholder='*Required' value={form.city} onChange={handleChange} name='city'/>
         </div>
         <div className={style.content}>
           <label>Country</label>
-          <input type='text' placeholder='*Required'/>
+          <input type='text' placeholder='*Required' value={form.country} onChange={handleChange} name='country'/>
         </div>
         <div className={style.phone }>
           <div>
             <label>Phone Number</label>
-            <input type='text' placeholder='*Required'/>
+            <input type='text' placeholder='*Required' value={form.phone} onChange={handleChange} name='phone'/>
           </div>
           <div>
             <Link to="/" className={style.link}>
@@ -92,7 +97,7 @@ export default function Home() {
         </div>
         <div>
           <div className={style.content, style.btn}>
-            <Link to='/final'onClick={handleClick}>
+            <Link to='/work'onClick={handleClick}>
               <button className={style.saveBtn} >SAVE & CONTINUE</button>
             </Link>
           </div>

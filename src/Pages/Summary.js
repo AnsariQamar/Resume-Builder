@@ -9,7 +9,7 @@ export default function Summary() {
         <div className={style.steps}>UP NEXT : </div>
         <h1>Summary</h1>
         <ul className={style.list}>
-          <li>
+          <li className={style.lit}>
             <div>
               <div className={style.span}>
                 This is the most read section of your resume. Keep it succinct,
@@ -17,7 +17,7 @@ export default function Summary() {
               </div>
             </div>
           </li>
-          <li>
+          <li className={style.lit}>
             <div>
               <div className={style.span}>
                 Give a brief overview of your skills and background and tie that
@@ -25,7 +25,7 @@ export default function Summary() {
               </div>
             </div>
           </li>
-          <li>
+          <li className={style.lit}>
             <div>
               <div className={style.span}>
                 Sometimes it's best to write a custom summary that is specific
@@ -42,7 +42,7 @@ export default function Summary() {
           <button className={style.btn}>ENTER MY SUMMARY</button>
         </Link>
         <div className={style.back}>
-          <Link to="/" className={style.link}>
+          <Link to="/skillsDetails" className={style.link}>
             &lt; Back
           </Link>
         </div>

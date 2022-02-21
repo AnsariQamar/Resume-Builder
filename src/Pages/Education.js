@@ -41,7 +41,7 @@ export default function Education() {
               <button className={style.btn}>ENTER MY EDUCATION</button>
           </Link>
           <div className={style.back}>
-            <Link to='/'  className={style.link}>&lt; Back</Link>
+            <Link to='/workDetails'  className={style.link}>&lt; Back</Link>
           </div>
       </div>
       <div className={style.rightContainer}>

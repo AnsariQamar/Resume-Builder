@@ -1,8 +1,22 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
 import style from '../Styles/workDetails.module.css';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { setEducation } from '../actions/actions';
 
 export default function EdDetails() {
+  const {ChangeEducation}=useSelector((state)=>state);
+  const [form,setForm]=useState({
+    school:ChangeEducation.school,
+    degree:ChangeEducation.degree,
+    city:ChangeEducation.city,
+    country:ChangeEducation.country,
+    month:ChangeEducation.month,
+    year:ChangeEducation.year
+  })
+  const dispatch=useDispatch();
+
     const Month=[
         "January","February",
         "March","April",
@@ -10,8 +24,22 @@ export default function EdDetails() {
         "September","November","December"
     ]
     const Year=[
-        '2022','2021'
-    ]
+      '2022','2021','2020','2019','2018','2017','2016','2015',
+      '2014','2013','2012','2011','2010','2009','2008','2007',
+      '2006','2005','2004','2003','2002','2001','2000'
+  ]
+
+    function handleChange(e){
+      const {name,value}=e.target;
+      setForm({
+        ...form,
+        [name]:value
+      })
+    }
+    function handleClick(){
+      console.log(form)
+      dispatch(setEducation(form));
+    }
   return (
     <div styles={{width:"100%", height:"100%"}}>
       <div className={style.container}>
@@ -21,33 +49,33 @@ export default function EdDetails() {
         </div>
         <div className={style.content}>
           <label>School Name</label>
-          <input type='text' placeholder='*Required'/>
+          <input type='text' onChange={handleChange} name='school' value={form.school} placeholder='*Required'/>
         </div>
         <div className={style.content, style.company}>
             <label>City/Town</label>
-            <input type='text' placeholder='*Required'/>
+            <input type='text' onChange={handleChange} name='city' value={form.city} placeholder='*Required'/>
         </div>
         <div className={style.content}>
             <label>Country</label>
-            <input type='text' placeholder='*Required'/>
+            <input type='text' onChange={handleChange} name='country' value={form.country} placeholder='*Required'/>
         </div>
         <div className={style.content}>
           <label>Degree</label>
-          <input type='text' placeholder='*Required'/>
+          <input type='text' onChange={handleChange} name='degree' value={form.degree} placeholder='*Required'/>
         </div>
         <div className={style.content}>
             <label>Graduation Date</label>
             <div style={{display:'flex'}}>
-            <select>
+              <select onChange={handleChange} name='month' value={form.month}>
                   <option>Month</option>
                   {
                       [...Month].map(ele=> <option key={ele} value={ele}>{ele}</option>)
                   }
               </select>
-              <select>
+              <select onChange={handleChange} name='year' value={form.year}>
                   <option>Year</option>
                   {
-                      [...Year].map(ele=> <option key={ele-1} value={ele-1}>{ele-1}</option>)
+                      [...Year].map(ele=> <option key={ele} value={ele}>{ele}</option>)
                   }
               </select>
             </div>
@@ -57,12 +85,12 @@ export default function EdDetails() {
           </div>
         <div>
           <div className={style.content, style.btn}>
-            <Link to='/skills'>
+            <Link to='/skills' onClick={handleClick}>
               <button className={style.saveBtn}>SAVE & CONTINUE</button>
             </Link>
           </div>
           <div className={style.back}>
-            <Link to='/'  className={style.link}>&lt; Back</Link>
+            <Link to='/education'  className={style.link}>&lt; Back</Link>
           </div>
         </div>
       </div>

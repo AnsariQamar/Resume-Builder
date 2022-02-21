@@ -7,7 +7,6 @@ export default function Header() {
         <>
             <div className={styles.logo}>
                 <Link to="/">
-
                     <i className="fa fa-file-text-o" style={{ fontSize: "40px", color: "blue" }}></i>
                 </Link>
             </div>

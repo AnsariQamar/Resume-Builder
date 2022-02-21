@@ -11,21 +11,21 @@ export default function Skills() {
           <div className={style.steps}>UP NEXT : </div>
           <h1>Skills</h1>
           <ul className={style.list}>
-            <li >
+            <li className={style.lit}>
                 <div>
                     <div className={style.span}>
                     Keep your list of skills to around 8 if possible. Also, if you can, use skills listed in the job posting you are applying to.
                     </div>
                 </div>
             </li>
-            <li >
+            <li className={style.lit}>
                 <div>
                     <div className={style.span}>
                     Soft skills are the most transferable from one role to the other as they are more universal
                     </div>
                 </div>
             </li>
-            <li>
+            <li className={style.lit}>
                 <div>
                     <div className={style.span}>
                     Hard skills, on the other hand, are technical skills. They relate to specific roles and responsibilities.
@@ -41,7 +41,7 @@ export default function Skills() {
               <button className={style.btn}>ENTER MY SKILLS</button>
           </Link>
           <div className={style.back}>
-            <Link to='/'  className={style.link}>&lt; Back</Link>
+            <Link to='/edDetails'  className={style.link}>&lt; Back</Link>
           </div>
       </div>
       <div className={style.rightContainer}>
