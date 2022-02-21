@@ -45,7 +45,7 @@ export default function WorkExp() {
       </div>
       <div className={style.rightContainer}>
           <div className={style.image}>
-            <img src="https://cdn1.resumenerd.com/images/tips/experience-desktop-tip.svg" alt="workexperience tip" style={{width:'90%'}}/>          
+            <img src="https://cdn1.resumenerd.com/images/tips/experience-desktop-tip.svg" alt="workexperience tip" style={{width:'100%'}}/>          
           </div>
       </div>
     </div>

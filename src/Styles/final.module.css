@@ -4,8 +4,208 @@
     height: 100%;
     box-sizing: border-box;
 }
-.rightContainer{
+.leftContainer{
+    height: 80%;
+    width: 70%;
+    margin: 60px 100px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 7px rgb(0 0 0 / 32%);
+    font-family: 'Times New Roman', Times, serif;
+}
+.starting{
+    height: 100px;
+    width: 100px;
+    background-color: black;
+    color: white;
+    font-size: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    text-transform: uppercase;
+}
+.slant{
+    height: 100px;
+    width: 10px;
+    background-color: black;
+    color: white;
+    font-size: 100px;
+    font-weight: lighter;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+    position: absolute;
+    bottom: 5px;
+    left: 48px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.rightContainer{    
     background-color: #F7F7F7;
     height: 100%;
     box-shadow: 0 2px 5px rgb(0 0 0 / 40%);
+    padding: 20px;
 }
+.heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -10px;
+}
+.content{
+    margin: 10px 0px;
+}
+.Btn{
+    height: 45px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #03ACBB;
+}
+.layout{
+    display: flex;
+    justify-content: space-between;
+}
+.layout > div{
+    height: 20px;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 40%);
+    border-radius: 5px;
+    font-size: 12px;
+    border: 1px solid white;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    margin:10px 0px;
+    background-color: white;
+}
+.layout>div:hover{
+    border: 1px solid #8CC53E;
+    cursor: pointer;
+}
+.styl{
+    display: grid;
+    grid-template-columns: auto auto;
+
+}
+select{
+    font-family: "Raleway",Arial,"Times New Roman",Times,sans-serif;
+    font-size: 15px;
+    text-align: left;
+}
+option{
+    font-family: "Raleway",Arial,"Times New Roman",Times,sans-serif;
+    font-size: 15px;
+}
+.colurs{
+    display: flex;
+    justify-content: space-between;
+    height: 35px;
+    
+}
+.clr{
+    height: auto;
+    width: calc(100%/10);
+    border-radius: 100%;
+    margin: 0px 2px;
+    /* content: none; */
+}
+.clr:after{
+    content: '✓';
+    padding-top: 5px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
