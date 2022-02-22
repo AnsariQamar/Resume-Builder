@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect } from 'react';
 import Layout from './Components/Layout';
 import Home from './Pages/Home'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
@@ -16,6 +17,9 @@ import Summary from './Pages/Summary';
 import SummaryDetails from './Pages/SummaryDetails';
 import FinalPage from './Components/subComponents/FinalPage';
 function App() {
+  useEffect(()=>{
+    alert("hello ")
+  },[]);
   return (
     <Router>
       <Layout>
