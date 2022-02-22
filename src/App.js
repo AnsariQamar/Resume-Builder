@@ -17,9 +17,9 @@ import Summary from './Pages/Summary';
 import SummaryDetails from './Pages/SummaryDetails';
 import FinalPage from './Components/subComponents/FinalPage';
 function App() {
-  useEffect(()=>{
-    alert("hello ")
-  },[]);
+  // useEffect(()=>{
+  //   alert("hello ")
+  // },[]);
   return (
     <Router>
       <Layout>

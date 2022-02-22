@@ -7,14 +7,7 @@ import { setEducation } from '../actions/actions';
 
 export default function EdDetails() {
   const {ChangeEducation}=useSelector((state)=>state);
-  const [form,setForm]=useState({
-    school:ChangeEducation.school,
-    degree:ChangeEducation.degree,
-    city:ChangeEducation.city,
-    country:ChangeEducation.country,
-    month:ChangeEducation.month,
-    year:ChangeEducation.year
-  })
+  const [form,setForm]=useState(ChangeEducation);
   const dispatch=useDispatch();
 
     const Month=[
@@ -98,3 +91,54 @@ export default function EdDetails() {
 
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const [form,setForm]=useState({
+  //   school:ChangeEducation.school,
+  //   degree:ChangeEducation.degree,
+  //   city:ChangeEducation.city,
+  //   country:ChangeEducation.country,
+  //   month:ChangeEducation.month,
+  //   year:ChangeEducation.year
+  // })

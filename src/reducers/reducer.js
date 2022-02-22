@@ -10,18 +10,80 @@ const initialState={
 const ChangeName=(state=initialState,action)=>{
     if(action.type==='form'){
         console.log(action.payload);
-        return {
-            ...state,
-            name:action.payload.name,
-            email:action.payload.email,
-            address:action.payload.address,
-            city:action.payload.city,
-            country:action.payload.country,
-            phone:action.payload.phone
-        }
+        return  action.payload
     }
     else{
         return state;
     }
 }
 export default ChangeName; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// name:action.payload.name,
+            // email:action.payload.email,
+            // address:action.payload.address,
+            // city:action.payload.city,
+            // country:action.payload.country,
+            // phone:action.payload.phone

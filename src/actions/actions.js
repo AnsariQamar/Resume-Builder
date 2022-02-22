@@ -28,6 +28,12 @@ export const setSkills=(x)=>{
         payload:x
     }
 }
+export const setFinal=(x)=>{
+    return {
+        type:'finalform',
+        payload:x
+    }
+}
 
 
 

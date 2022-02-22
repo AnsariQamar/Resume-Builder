@@ -8,44 +8,20 @@ import style from '../Styles/home.module.css';
 
 export default function Home() {
   const {ChangeName}=useSelector((state)=>state)
-  // const [Name,setName]=useState(ChangeName.name);
-  // const [Email,setEmail]=useState(ChangeName.email);
-  // const [Address,setAddress]=useState(ChangeName.address);
-  const [form, setform]=useState({
-    name:ChangeName.name,
-    email:ChangeName.email,
-    address:ChangeName.address,
-    city:ChangeName.city,
-    country:ChangeName.country,
-    phone:ChangeName.phone
-  })
+  const [form,setform]=useState(ChangeName);
   const dispatch=useDispatch();
   
   function handleChange(e){
     let {name,value}=e.target;
-    console.log(e.target.value);
+    // console.log(e.target.value);
     setform({
       ...form,
       [name]:value
     })
-    // if(name=='name'){
-    //   setName(value);
-    //   console.log(Name);
-    // }else if(name=='email'){
-    //   setEmail(value);
-    // }else if(name=='address'){
-    //   setAddress(value);
-    // }
+    // console.log(form);
   }
-  const obj={};
   function handleClick(){
-    obj.name=form.name;
-    obj.email=form.email;
-    obj.address=form.address;
-    obj.city=form.city;
-    obj.country=form.country;
-    obj.phone=form.phone;
-    // console.log(obj);
+    // console.log(form);
     dispatch(setForm(form));
   }
 
@@ -110,3 +86,93 @@ export default function Home() {
 
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // const [Name,setName]=useState(ChangeName.name);
+  // const [Email,setEmail]=useState(ChangeName.email);
+  // const [Address,setAddress]=useState(ChangeName.address);
+  // const [form, setform]=useState({
+  //   name:ChangeName.name,
+  //   email:ChangeName.email,
+  //   address:ChangeName.address,
+  //   city:ChangeName.city,
+  //   country:ChangeName.country,
+  //   phone:ChangeName.phone
+  // })
+
+
+
+
+
+   // const obj={};
+    // obj.name=form.name;
+    // obj.email=form.email;
+    // obj.address=form.address;
+    // obj.city=form.city;
+    // obj.country=form.country;
+    // obj.phone=form.phone;
+    // console.log(obj);
+
+
+
+  // if(name=='name'){
+    //   setName(value);
+    //   console.log(Name);
+    // }else if(name=='email'){
+    //   setEmail(value);
+    // }else if(name=='address'){
+    //   setAddress(value);
+    // }
+
+

@@ -12,20 +12,90 @@ const initialState={
 const ChangeWork=(state=initialState,action)=>{
     if(action.type==='workform'){
         console.log(action.payload);
-        return {
-            ...state,
-            title:action.payload.title,
-            company:action.payload.company,
-            city:action.payload.city,
-            country:action.payload.country,
-            startDateMonth:action.payload.startDateMonth,
-            startDateYear:action.payload.startDateYear,
-            endDateMonth:action.payload.endDateMonth,
-            endDateYear:action.payload.endDateYear
-        }
+        return action.payload
     }
     else{
         return state;
     }
 }
 export default ChangeWork;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// return {
+//     ...state,
+//     title:action.payload.title,
+//     company:action.payload.company,
+//     city:action.payload.city,
+//     country:action.payload.country,
+//     startDateMonth:action.payload.startDateMonth,
+//     startDateYear:action.payload.startDateYear,
+//     endDateMonth:action.payload.endDateMonth,
+//     endDateYear:action.payload.endDateYear
+// }

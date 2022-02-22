@@ -8,16 +8,7 @@ import { setWork } from '../actions/actions';
 
 export default function WorkDetails() {
   const {ChangeWork}=useSelector((state)=>state);
-  const [form,setForm]=useState({
-    title:ChangeWork.title,
-    company:ChangeWork.company,
-    city:ChangeWork.city,
-    country:ChangeWork.country,
-    startDateMonth:ChangeWork.startDateMonth,
-    startDateYear:ChangeWork.startDateYear,
-    endDateMonth:ChangeWork.endDateMonth,
-    endDateYear:ChangeWork.endDateYear
-  })
+  const [form,setForm]=useState(ChangeWork)
   const dispatch=useDispatch();
     const Month=[
         "January","February",
@@ -39,19 +30,9 @@ export default function WorkDetails() {
     })
     // console.log(form)
   }
-  const obj={};
   function handleClick(){
-    obj.title=form.title;
-    obj.company=form.company;
-    obj.city=form.city;
-    obj.country=form.country;
-    obj.startDateMonth=form.startDateMonth
-    obj.startDateYear=form.startDateYear;
-    obj.endDateMonth=form.endDateMonth
-    obj.endDateYear=form.endDateYear;
-
-    console.log(form)
-    dispatch(setWork(obj));
+    // console.log(form)
+    dispatch(setWork(form));
   }
   return (
     <div styles={{width:"100%", height:"100%"}}>
@@ -130,3 +111,67 @@ export default function WorkDetails() {
 
   )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // title:ChangeWork.title,
+    // company:ChangeWork.company,
+    // city:ChangeWork.city,
+    // country:ChangeWork.country,
+    // startDateMonth:ChangeWork.startDateMonth,
+    // startDateYear:ChangeWork.startDateYear,
+    // endDateMonth:ChangeWork.endDateMonth,
+    // endDateYear:ChangeWork.endDateYear
+
+
+     // obj.title=form.title;
+    // obj.company=form.company;
+    // obj.city=form.city;
+    // obj.country=form.country;
+    // obj.startDateMonth=form.startDateMonth
+    // obj.startDateYear=form.startDateYear;
+    // obj.endDateMonth=form.endDateMonth
+    // obj.endDateYear=form.endDateYear;
