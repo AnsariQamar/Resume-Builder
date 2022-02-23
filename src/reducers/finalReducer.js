@@ -1,21 +1,14 @@
 const initialState={
-    document:{
-        color:1,
-        fontSize:1,
-        fontFamily:1
-    }
+        color:'1',
+        fontSize:'1',
+        fontFamily:'1',
+        template:'1',
 }
 
 const ChangeFinal=(state=initialState,action)=>{
     if(action.type==='finalform'){
-        return{
-            ...state,
-            document:{
-                color:action.payload.color,
-                fontSize:action.payload.fontSize,
-                fontFamily:action.payload.fontFamily
-            }
-        }
+        console.log(action.payload)
+        return action.payload
     }
     else{
         return state;
