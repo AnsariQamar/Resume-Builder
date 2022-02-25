@@ -1,3 +1,4 @@
+import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -5,24 +6,25 @@ import { Link } from 'react-router-dom';
 import { setForm } from '../actions/actions';
 import ChangeName from '../reducers/reducer';
 import style from '../Styles/home.module.css';
+import { db } from '../firebase-config';
 
 export default function Home() {
   const {ChangeName}=useSelector((state)=>state)
   const [form,setform]=useState(ChangeName);
   const dispatch=useDispatch();
+  const userCollectionRef=collection(db,'users');
   
   function handleChange(e){
     let {name,value}=e.target;
-    // console.log(e.target.value);
     setform({
       ...form,
       [name]:value
     })
-    // console.log(form);
   }
-  function handleClick(){
-    // console.log(form);
+ async function handleClick (){
     dispatch(setForm(form));
+    const f=await addDoc(userCollectionRef,{contact:form});
+    console.log(f);
   }
 
   return (

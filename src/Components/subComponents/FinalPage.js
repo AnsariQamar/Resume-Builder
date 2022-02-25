@@ -13,9 +13,7 @@ export default function FinalPage() {
   const { ChangeFinal } = useSelector((state) => state);
   const [form, setForm] = useState(ChangeFinal);
   const dispatch = useDispatch();
-  // const print = useReactToPrint();
   const clrArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  // console.log(form);
   function handleChange(e) {
     const { name, value } = e.target;
     setForm({
@@ -30,7 +28,7 @@ export default function FinalPage() {
 
   return (
     <div className={styles.container}>
-      <div ref={componentRef}>
+      <div  ref={componentRef} style={{padding:'0px'}}>
         {form.template === "1" && <Template1 />}
         {form.template === "2" && <Template2 />}
       </div>

@@ -11,9 +11,14 @@ export default function Template2() {
     ChangeSummary,
     ChangeFinal,
   } = useSelector((state) => state);
+  const nameInitial = ChangeName.name.substring(0, 1);
+  const arr = ChangeName.name.split(" ");
+  //   const [form] = useState(ChangeFinal);
+  const { color, fontFamily, fontSize } = ChangeFinal;
+    console.log(`fontFamily${fontFamily}`);
   return (
     <div>
-      <div className={`${styles.leftContainer}`}>
+      <div className={`${styles.leftContainer} fontFamily${fontFamily}`}>
         {/* Contact */}
         <div className={styles.leftPart}>
           {ChangeName.name === "" || ChangeName.email === "" ? (
@@ -48,7 +53,7 @@ export default function Template2() {
               <div>
                 <p className={styles.title}>PROFESSIONAL SUMMARY</p>
               </div>
-              <div style={{ padding: "10px 15px", border: "1px solid black" }}>
+              <div style={{ padding: "10px 15px" }}>
                 {ChangeSummary}
               </div>
             </div>
@@ -76,7 +81,7 @@ export default function Template2() {
               <div>
                 <p className={styles.title}>EXPERIENCE</p>
               </div>
-              <div style={{ position: "relative", border: "1px solid black" }}>
+              <div style={{ position: "relative"}}>
                 <span>{ChangeWork.title}</span>
                 <div
                   style={{
