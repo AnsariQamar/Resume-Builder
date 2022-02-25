@@ -20,14 +20,14 @@ export default function Template1() {
 
   return (
     <div>
+
       <div
-        className={`${styles.leftContainer} `}
-        id={`fontFamily${fontFamily} `}
+        className={`${styles.leftContainer} fontFamily${fontFamily}`}        
       >
         {ChangeName.name === "" || ChangeName.email === "" ? (
           <div></div>
         ) : (
-          <div className={styles.contact} id={`fontFamily${fontFamily} `}>
+          <div className={styles.contact} >
             <div style={{ display: "flex" }}>
               {arr.length <= 1 ? (
                 <div className={`${styles.starting}`} id={`color${color}`}>
@@ -81,7 +81,7 @@ export default function Template1() {
         ) : (
           <div className={styles.summary}>
             <p style={{ fontWeight: "800" }}>PROFESSIONAL SUMMARY</p>
-            <div style={{ padding: "10px 15px", border: "1px solid black" }}>
+            <div style={{ padding: "10px 15px" }}>
               {ChangeSummary}
             </div>
           </div>
@@ -105,7 +105,7 @@ export default function Template1() {
         ) : (
           <div className={styles.exp}>
             <p style={{ fontWeight: "800" }}>EXPERIENCE</p>
-            <div style={{ position: "relative", border: "1px solid black" }}>
+            <div style={{ position: "relative" }}>
               <span>{ChangeWork.title}</span>
               <div
                 style={{

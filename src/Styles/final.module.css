@@ -49,7 +49,7 @@
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: auto auto;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 .exp {
   display: flex;
@@ -155,7 +155,7 @@ option {
   width: 20px;
   height: 30px;
   border-radius: 50%;
-  vertical-align: center;
+  vertical-align: center; 
   border: 1px solid #ddd;
   appearance: none;
   outline: none;
@@ -164,4 +164,40 @@ option {
 .ckbx:checked {
   border: 3px solid Yellow;
 }
+.templateBtn{
+  display: flex;
+  /* align-items: cenetr; */
+}
+.templateBtn button{
+  background-color: #0b0b0b;
+  color:white;
+  font-size:15px;
+  padding: 5px 10px;
+  margin: 2px 5px;
+  font-weight: 600;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  
+}
+.templateBtn button:focus{
+  background-color: white;
+  color:#0b0b0b;
+}
+/* .templateBtn .button{
+  background-color: white;
+  color:#0b0b0b;
+  font-size:15px;
+  padding: 5px 10px;
+  margin: 2px 5px;
+  font-weight: 600;
+  width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  
+}
+.templateBtn .button:focus{
+  background-color: #0b0b0b;
+  color:white;
+} */
 

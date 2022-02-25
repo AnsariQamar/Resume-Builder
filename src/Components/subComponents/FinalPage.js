@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setFinal } from "../../actions/actions";
@@ -6,11 +6,14 @@ import styles from "../../Styles/final.module.css";
 import Template1 from "./Template1";
 import Template2 from "./Template2";
 import Template3 from "./Template3";
+import ReactToPrint from "react-to-print";
 
 export default function FinalPage() {
+  const componentRef = useRef();
   const { ChangeFinal } = useSelector((state) => state);
   const [form, setForm] = useState(ChangeFinal);
   const dispatch = useDispatch();
+  // const print = useReactToPrint();
   const clrArr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   // console.log(form);
   function handleChange(e) {
@@ -20,19 +23,17 @@ export default function FinalPage() {
       [name]: value,
     });
   }
+
   useEffect(() => {
     dispatch(setFinal(form));
   }, [form]);
 
   return (
     <div className={styles.container}>
-      {
-        form.template==='1' && <Template1 />
-      }
-      {
-
-      form.template==='2' && <Template2/>
-      }
+      <div ref={componentRef}>
+        {form.template === "1" && <Template1 />}
+        {form.template === "2" && <Template2 />}
+      </div>
       {/* <Template3/> */}
       <div className={styles.rightContainer}>
         <div className={styles.heading}>
@@ -49,9 +50,17 @@ export default function FinalPage() {
         </div>
         <p style={{ fontWeight: "600" }}>Export Options</p>
         <div className={styles.content}>
-          <button className={styles.Btn} style={{ background: "#94DD46" }}>
+          {/* <button className={styles.Btn} style={{ background: "#94DD46" }}>
             Download
-          </button>
+          </button> */}
+          <ReactToPrint
+            content={() => componentRef.current}
+            trigger={() => (
+              <button className={styles.Btn} style={{ background: "#94DD46" }}>
+                Download
+              </button>
+            )}
+          />
         </div>
         <div className={styles.content}>
           <button className={styles.Btn}>Print</button>
@@ -76,7 +85,7 @@ export default function FinalPage() {
               style={{ margin: "10px 0px" }}
               onChange={handleChange}
               name="fontFamily"
-              >
+            >
               <option value="1">Raleway</option>
               <option value="2">Ubuntu</option>
               <option value="3">MontSerrat</option>
@@ -123,104 +132,25 @@ export default function FinalPage() {
         <div className={styles.content}>
           <button className={styles.Btn}>Change Template</button>
         </div>
-        <div>
-          <button value='1'name='template' onClick={handleChange}>Template 1</button>
-          <button value='2' name='template' onClick={handleChange}>Template 2</button>
+        <div className={styles.templateBtn}>
+          <button value="1" name="template" onClick={handleChange}>
+            Hospilatity
+          </button>
+          <button value="2" name="template" onClick={handleChange}>
+            Impresa
+          </button>
         </div>
+        <div></div>
       </div>
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // const nameInitial = ChangeName.name.substring(0, 1);
 // const arr = ChangeName.name.split(" ");
 // const colorClass = "color" + form.color;
 // const fontFamilyClass='fontFamily'+form.fontFamily;
 // const fontClass='fontSize'+form.fontSize;
-
-
-
-
-
-
 
 {
   /* 
@@ -235,10 +165,8 @@ export default function FinalPage() {
             <div className={styles.clr} style={{ background: "#2F527B" }}></div> */
 }
 
-
-
-
-{/* <div className={`${styles.leftContainer} ${fontClass}`} id={`${fontFamilyClass} `}>
+{
+  /* <div className={`${styles.leftContainer} ${fontClass}`} id={`${fontFamilyClass} `}>
   {ChangeName.name === "" || ChangeName.email === "" ? (
     <div></div>
   ) : (
@@ -377,4 +305,5 @@ export default function FinalPage() {
   <div className={styles.newSection}>
     <h1 style={{ fontSize: "20px" }}>+ ADD NEW SECTION</h1>
   </div>
-</div> */}
+</div> */
+}

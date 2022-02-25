@@ -32,8 +32,8 @@ export default function WorkExp() {
                 </div>
             </li>
           </ul>
-          <div style={{display:'flex'}}>
-            <input id="hideTips" type="checkbox"/>
+          <div style={{display:'flex', justifyContent:'right'}}>
+            <input id="hideTips" type="checkbox" className={style.ckbx}/>
             <label for="hideTips">Don’t show me tips pages in the future.</label>
           </div>
           <Link to="/workDetails">

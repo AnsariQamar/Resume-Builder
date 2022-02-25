@@ -3,6 +3,7 @@ body,
 #root {
   height: 100%;
   font-family: "Raleway", Arial, "Times New Roman", Times, sans-serif;
+  /* color-scheme: white ; */
 }
 .container {
   height: 100%;
@@ -56,23 +57,23 @@ body,
   background-color: #2f527b;
 }
 
-#fontFamily1 {
-  font-family: "Raleway";
+.fontFamily1 {
+  font-family: Georgia;
 }
-#fontFamily2 {
-    font-family: 'Ubuntu', sans-serif;
+.fontFamily2 {
+    font-family: 'Ubuntu';
 }
-#fontFamily3 {
-    font-family: 'Montserrat', sans-serif;
+.fontFamily3 {
+    font-family: 'Montserrat';
 }
-#fontFamily4 {
-    font-family: 'Source Sans Pro', sans-serif;
+.fontFamily4 {
+    font-family: 'Source Sans Pro';
 }
-#fontFamily5 {
-    font-family: 'Hind', sans-serif;
+.fontFamily5 {
+    font-family: 'Hind';
 }
-#fontFamily6 {
-  font-family: 'Times New Roman', Times, serif;
+.fontFamily6 {
+  font-family: 'Times New Roman';
 }
 
 .font1 {

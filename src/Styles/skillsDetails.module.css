@@ -46,6 +46,7 @@ label{
     display: flex;
     /* justify-content: center; */
     align-items: center;
+    cursor: pointer;
 }
 .checkBox >input{
     width:15px;
@@ -90,12 +91,13 @@ label{
 .content{
     margin: 12px auto;
     display: flex;
-    align-items: center;
+    align-items: center; 
     position: relative;
 }
 .trash{
     position: absolute;
     right: 13px;
+    cursor: pointer;
 }
 .add{
     margin-top: 20px;

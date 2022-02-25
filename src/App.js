@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Layout from './Components/Layout';
 import Home from './Pages/Home'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
@@ -16,10 +16,21 @@ import SkillsDetails from './Pages/SkillsDetails';
 import Summary from './Pages/Summary';
 import SummaryDetails from './Pages/SummaryDetails';
 import FinalPage from './Components/subComponents/FinalPage';
+import { db } from './firebase-config';
+import {collection, getDocs} from 'firebase/firestore'
 function App() {
-  // useEffect(()=>{
-  //   alert("hello ")
-  // },[]);
+  const [user,setUser]=useState([]);
+  const userCollectionRef=collection(db,"users");
+  
+  useEffect(()=>{
+    const getUsers= async ()=>{
+      const data=await getDocs(userCollectionRef);
+      setUser(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+      // console.log(data);
+    }
+    getUsers()
+  },[]);
+  console.log(user);
   return (
     <Router>
       <Layout>
