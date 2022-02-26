@@ -64,7 +64,7 @@ export default function Signup() {
     <>
       {loading ? (
         <div className={styles.load}>
-          <TailSpin color="#00BFFF" height={200} width={80} />
+          <TailSpin color="#00BFFF" height={200} width={200} />
           <p>Loading.....</p>
         </div>
       ) : (
