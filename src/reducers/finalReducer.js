@@ -7,7 +7,6 @@ const initialState={
 
 const ChangeFinal=(state=initialState,action)=>{
     if(action.type==='finalform'){
-        console.log(action.payload)
         return action.payload
     }
     else{

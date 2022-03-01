@@ -5,12 +5,14 @@ import style from "../Styles/skillsDetails.module.css";
 import ChangeSkills from "../reducers/skillreducer";
 import { useSelector } from "react-redux";
 import { setForm, setSkills } from "../actions/actions";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "../firebase-config";
 
 export default function SkillsDetails() {
   const dispatch = useDispatch();
+  const { ChangeSkills,UserR } = useSelector((state) => state);
   const [form, setForm] = useState([]);
-
-  const { ChangeSkills } = useSelector((state) => state);
+  const {uid}=UserR;
   useEffect(() => {
     setForm(ChangeSkills);
   }, []);
@@ -30,8 +32,12 @@ export default function SkillsDetails() {
   useEffect(() => {
     dispatch(setSkills(form));
   }, [form]);
-  function handleClick() {
+ async function handleClick() {
     dispatch(setSkills(form));
+    const userDoc=doc(db,'users',uid);
+    let user=await getDoc(userDoc);
+    user=user.data();
+    await setDoc(userDoc,{...user,skills:form});
   }
 
   return (

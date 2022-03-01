@@ -1,5 +1,5 @@
-import { addDoc, collection } from 'firebase/firestore';
-import React, { useState } from 'react'
+import { addDoc, collection, doc, getDoc, getDocs, setDoc } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -9,10 +9,11 @@ import style from '../Styles/home.module.css';
 import { db } from '../firebase-config';
 
 export default function Home() {
-  const {ChangeName}=useSelector((state)=>state)
+  const {ChangeName,UserR}=useSelector((state)=>state)
   const [form,setform]=useState(ChangeName);
   const dispatch=useDispatch();
   const userCollectionRef=collection(db,'users');
+  const {uid}=UserR;
   
   function handleChange(e){
     let {name,value}=e.target;
@@ -21,10 +22,13 @@ export default function Home() {
       [name]:value
     })
   }
+  
  async function handleClick (){
     dispatch(setForm(form));
-    const f=await addDoc(userCollectionRef,{contact:form});
-    console.log(f);
+    const userDoc=doc(db,'users',uid);
+    let user=await getDoc(userDoc);
+    user=user.data();
+    await setDoc(userDoc,{...user,contact:form});
   }
 
   return (

@@ -5,6 +5,7 @@ import ChangeSkills from "./skillreducer";
 import ChangeEducation from "./educationReducer";
 import ChangeSummary from "./summaryReducer";
 import ChangeFinal from "./finalReducer"
+import UserR from "./userReducer";
 const rootReducer = combineReducers({
   ChangeName,
   ChangeWork,
@@ -12,5 +13,6 @@ const rootReducer = combineReducers({
   ChangeSummary,
   ChangeEducation,
   ChangeFinal,
+  UserR
 });
 export default rootReducer;

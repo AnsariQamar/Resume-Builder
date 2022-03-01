@@ -11,7 +11,6 @@ const initialState={
 
 const ChangeWork=(state=initialState,action)=>{
     if(action.type==='workform'){
-        console.log(action.payload);
         return action.payload
     }
     else{

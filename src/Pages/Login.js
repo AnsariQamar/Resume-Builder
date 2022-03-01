@@ -1,17 +1,26 @@
 import { getAuth, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
-import React, { createRef, useState } from "react";
+import React, { createRef, useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { userDetails } from "../actions/actions";
+import UserR from "../reducers/userReducer";
 import styles from "../Styles/signup.module.css";
 
 export default function Login() {
   const navigate = useNavigate();
+  const {UserR}=useSelector((state)=>state)
   const [loading, setLoading] = useState(false);
+  const [user, setuser] = useState(UserR);
+  const dispatch=useDispatch();
   const emailRef = createRef(null);
   const passwordRef = createRef(null);
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
   provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
+
+  
 
   function handleClickGoogle() {
     signInWithPopup(auth, provider)
@@ -20,15 +29,20 @@ export default function Login() {
         console.log(credential);
         const token = credential.accessToken;
         const user = result.user;
-        // alert("signinSuccessful");
-        navigate("/login");
+        const {uid,email,displayName}=user;
+        setuser({
+          uid:uid,
+          email:email,
+          name:displayName
+        });
+        console.log(user);
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
-        // alert("signin Fail");
         console.log(credential);
       });
   }
@@ -41,17 +55,26 @@ export default function Login() {
     )
       .then((userCredential) => {
         const user = userCredential.user;
-        // alert("Login Successful");
+        const {uid,email,displayName}=user;
+        console.log(user);
         setLoading(false);
+        setuser({
+          uid:uid,
+          email:email,
+          name:displayName
+        });
+        
         navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // alert("login Fail");
         setLoading(false);
       });
   }
+  useEffect(()=>{
+    dispatch(userDetails(user));
+  },[user])
   return (
     <>
     {loading ? (

@@ -19,18 +19,18 @@ import FinalPage from './Components/subComponents/FinalPage';
 import { db } from './firebase-config';
 import {collection, getDocs} from 'firebase/firestore'
 function App() {
-  const [user,setUser]=useState([]);
-  const userCollectionRef=collection(db,"users");
+  // const [user,setUser]=useState([]);
+  // const userCollectionRef=collection(db,"users");
   
-  useEffect(()=>{
-    const getUsers= async ()=>{
-      const data=await getDocs(userCollectionRef);
-      setUser(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
-      // console.log(data);
-    }
-    getUsers()
-  },[]);
-  console.log(user);
+  // useEffect(()=>{
+  //   const getUsers= async ()=>{
+  //     const data=await getDocs(userCollectionRef);
+  //     setUser(data.docs.map((doc)=>({...doc.data(),id:doc.id})));
+  //     // console.log(data);
+  //   }
+  //   getUsers()
+  // },[]);
+  // console.log(user);
   return (
     <Router>
       <Layout>

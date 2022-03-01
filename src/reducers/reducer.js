@@ -9,7 +9,7 @@ const initialState={
 }
 const ChangeName=(state=initialState,action)=>{
     if(action.type==='form'){
-        console.log(action.payload);
+        // console.log(action.payload);
         return  action.payload
     }
     else{

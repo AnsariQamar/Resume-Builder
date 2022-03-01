@@ -5,10 +5,13 @@ import style from '../Styles/workDetails.module.css';
 import ChangeWork from '../reducers/workReducer';
 import { useDispatch } from 'react-redux';
 import { setWork } from '../actions/actions';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
+import { db } from '../firebase-config';
 
 export default function WorkDetails() {
-  const {ChangeWork}=useSelector((state)=>state);
-  const [form,setForm]=useState(ChangeWork)
+  const {ChangeWork,UserR}=useSelector((state)=>state);
+  const [form,setForm]=useState(ChangeWork);
+  const {uid}=UserR;
   const dispatch=useDispatch();
     const Month=[
         "January","February",
@@ -28,15 +31,17 @@ export default function WorkDetails() {
       ...form,
       [name]:value
     })
-    // console.log(form)
   }
-  function handleClick(){
-    // console.log(form)
+ async function handleClick(){
     dispatch(setWork(form));
+    const userDoc=doc(db,'users',uid);
+    let user=await getDoc(userDoc);
+    user=user.data();
+    await setDoc(userDoc,{...user,work:form});
   }
   return (
     <div styles={{width:"100%", height:"100%"}}>
-      <button onClick={handleClick}>Click</button>
+      {/* <button onClick={handleClick}>Click</button> */}
       <div className={style.container}>
         <div className={style.heading}>
           <p className={style.about}>Work Experience</p>

@@ -1,19 +1,26 @@
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { setSummary } from '../actions/actions';
+import { db } from '../firebase-config';
 import style from '../Styles/summaryDetails.module.css';
 
 export default function WorkDetails() {
  const dispatch=useDispatch();
- const {ChangeSummary }=useSelector((state)=>state);
+ const {ChangeSummary ,UserR}=useSelector((state)=>state);
  const [form,setForm]=useState(ChangeSummary);
+ const {uid}=UserR;
  function handleChange(e){
    setForm(e.target.value);
  }
- function handleClick(){
+async function handleClick(){
    dispatch(setSummary(form));
+   const userDoc=doc(db,'users',uid);
+    let user=await getDoc(userDoc);
+    user=user.data();
+    await setDoc(userDoc,{...user,summary:form});
  }
   return (
     <div styles={{width:"100%", height:"100%"}}>

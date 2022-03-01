@@ -34,6 +34,12 @@ export const setFinal=(x)=>{
         payload:x
     }
 }
+export const userDetails=(x)=>{
+    return {
+        type:'userform',
+        payload:x
+    }
+}
 
 
 
